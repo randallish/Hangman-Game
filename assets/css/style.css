@@ -1,0 +1,40 @@
+header {
+    text-align:center;
+    font-size:40px;
+}
+
+#hangman-words {
+    text-align:center;
+    margin-top: 200px;
+}
+
+#guesses {
+    position:absolute;
+    text-align:center;
+    margin-top: -50px;
+    margin-left: 300px;
+}
+
+#wins {
+    position:absolute;
+    text-align:center;
+    margin-top: 50px;
+    margin-left: 300px;
+}
+
+#letters-used {
+    text-align:center;
+    margin-top: 150px;
+}
+
+
+#hangman-category {
+    text-align:center;
+    margin-top: -100px;
+}
+
+#reset {
+    float:right;
+    margin-right: 600px;
+    margin-top: 150px;
+}

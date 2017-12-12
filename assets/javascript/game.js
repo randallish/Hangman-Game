@@ -17,6 +17,8 @@ var wins = 0;
 var guesses = 10;
 var answerWord = [];
 var wrongLetter = [];
+var randomWord = '';
+
 
 
 
@@ -26,81 +28,68 @@ var numberOfGuesses = document.getElementById("guesses");
 var numberOfWins = document.getElementById('wins');
 var lettersUsed = document.getElementById("letters-used");
 
-
+// starts game
 function launchGame() {
-// generates random item from array
+// resets variables to global value
 var answerWord = [];
 var wrongLetter = [];
-var randomWord = words[Math.floor(Math.random() * words.length)];
-console.log(randomWord);
 var guesses = 10;
 
+// generates random word from array
+randomWord = words[Math.floor(Math.random() * words.length)];
+splitWord = randomWord.split('');
+console.log(randomWord);
+
 // hidden answer array with blank underscores
-for (var i = 0;  i < randomWord.length; i++) {
-    answerWord.push('_');
+for (var i = 0;  i < splitWord.length; i++) {
+    answerWord.push(' _ ');
 }
+hangmanWord.innerHTML = answerWord.join('');
+
 };
 
-
-function letterCheck (letter) {
-    if (randomWord.indexOf(letter) !== -1) {
-        for( var k = 0; k < randomWord.length; k++) {
-            if (randomWord[k] === letter){
-                answerWord[k] = letter;
-                hangmanWord.innerHTML = answerWord.join(' '); 
-            }
-        }
-    }
-else {
-    guesses--;
-}
-if (randomWord.indexOf(letter) === -1) {
-     wrongLetter.push(letter);
-     lettersUsed.innerHTML= "Letters used: " + wrongLetter.join('');
- }
-};
-
-
-
-
-
-
-// registers user's pressed key
-launchGame();
+// registers user key
 document.onkeyup = function(event) {    
     var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
     letterCheck(userGuess);
-};
-        //for (var j = 0; j < randomWord.length; j++) {
-         //   if (randomWord[j] === userGuess){
-               // answerWord[j] = userGuess;
-                //lettersLeft--;                
-               // hangmanWord.innerHTML = answerWord.join(' ');                
-           // }
-      // }
+}
 
-      //  if(lettersLeft == 0){
-       //     alert("you won!");
-     //   }
-  //  };  
+// checks for right or wrong letters
+function letterCheck (userGuess) {
+    if (randomWord.indexOf(userGuess) > -1) {
+        console.log(true);
+        for( var k = 0; k < splitWord.length; k++) {
+            if (splitWord[k] === userGuess){
+                answerWord[k] = userGuess;
+                hangmanWord.innerHTML = answerWord.join('');                 
+            }
+        }
+    }
 
-//         else {
-//         guesses--;
-//         wrongLetter.push(userGuess);
-//         lettersUsed.innerHTML = "Letters used:" +  wrongLetter.join(' ');
-//         numberofGuesses.innerHTML = "Guesses remaining:" + guesses;
-//         }
+    if (answerWord.join('') == splitWord.join('')) { 
+    wins++;
+    numberOfWins.innerHTML = "Number of wins: " + wins;
+    alert("You win!");
+    launchGame();
+    }
+    else if (randomWord.indexOf(userGuess) === -1) {
+        guesses--;
+        numberOfGuesses.innerHTML = "Guesses remaining: " + guesses;
+    }
 
-//         if( guesses ===  0) {
-//             alert("Sorry you lost!")
-//         }
-//     }
-// }
-    
+    if (guesses == 0){
+        alert("You lost! Click reset to play again");
+    }
+}
+
+  
+
+
+launchGame();
+
+
 
     // reset game 
     document.getElementById("reset").onclick = function() {
         location.reload();
     };
-
-

@@ -1,40 +1,63 @@
-header {
-    text-align:center;
-    font-size:40px;
-}
 
 #hangman-words {
     text-align:center;
-    margin-top: 200px;
+    margin-top: 85px;
 }
 
 #guesses {
     position:absolute;
     text-align:center;
     margin-top: -50px;
-    margin-left: 300px;
+    margin-right: 300px;
 }
 
 #wins {
     position:absolute;
     text-align:center;
     margin-top: 50px;
-    margin-left: 300px;
+    margin-right: 300px;
 }
 
 #letters-used {
     text-align:center;
-    margin-top: 150px;
+    margin-top: 100px;
 }
 
 
 #hangman-category {
     text-align:center;
     margin-top: -100px;
+    font-size: 25px;
 }
 
 #reset {
     float:right;
-    margin-right: 600px;
-    margin-top: 150px;
+    margin-right: 575px;
+    margin-top: -275px;
+}
+
+#wins-loss-guesses{
+    margin-left: 200px;
+}
+
+footer {
+    position:absolute;
+    bottom:0;
+    margin-right:500px;
+    width:100%;
+}
+
+.name {
+    text-align:center;
+    padding-top:10px;
+    font-size: 20px;
+}
+
+p {
+    font-family: 'Shadows Into Light', cursive;
+}
+
+div {
+    font-family: 'Shadows Into Light', cursive;    
+    font-size: 22px; 
 }

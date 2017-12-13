@@ -6,17 +6,34 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hangman!</title>
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Shadows+Into+Light">
+    
 </head>
 <body>
-    <header>Hangman</header>
+    <div class="jumbotron jumbotron-fluid bg-primary">
+        <div class="container">
+          <h1 class="display-3 text-center text-warning">Hangman</h1>
+          <p class="lead text-center text-light"> Press any key to get started!</p>
+        </div>
+      </div>
+
     <div class="container">
-        <div id="hangman-words"></div>
+        <div id="hangman-words">Your word is here </div>
+        </div>
+        <div id="wins-loss-guesses">
         <div id="guesses">Guesses remaining:</div>
         <div id="wins">Number of wins: </div>
+        <div id="losses"> Number of losses:</div>
+        </div>
+
         <div id="letters-used"> Letters used: </div>
-        <div id="hangman-category"> Category: Sports</div>
-        <button id="reset">Reset</button>
-</div>
+        <div id="hangman-category"> Category: Names of sports</div>
+        <button id="reset">Play Again!</button>
+        </div>
+
+
+        <footer class="bg-primary"> <p class="name text-warning">Copyright 2017 @ Randall Ishino</p></footer>
 <script type="text/javascript" src="./assets/javascript/game.js"></script>
 </body>
 </html>

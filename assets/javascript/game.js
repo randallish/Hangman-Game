@@ -39,12 +39,15 @@ guesses = 10;
 
 // generates random word from array
 randomWord = words[Math.floor(Math.random() * words.length)];
+
 // splitting randomWord into an array with separate strings
 splitWord = randomWord.split('');
 console.log(randomWord);
+
 // resets to empty array
 underScores = [];
 wrongLetter = [];
+
 // hidden answer array with blank underscores
 for (var i = 0;  i < splitWord.length; i++) {
     underScores.push(' _ ');
@@ -63,6 +66,7 @@ document.onkeyup = function(event) {
 
 // checks for right or wrong letters
 function letterCheck (userGuess) {
+
     // looping through the array and if the letter IS found
     if (randomWord.indexOf(userGuess) > -1) {
         for( var k = 0; k < splitWord.length; k++) {
@@ -75,6 +79,7 @@ function letterCheck (userGuess) {
 }
 // checking the result of game and adjusting wins/losses
 function checkWinOrLoss(userGuess) {
+
     // if both words are matched, adjust win counter, write to html
     // and call our launchGame function
     if (underScores.join('') == splitWord.join('')) { 
@@ -84,6 +89,7 @@ function checkWinOrLoss(userGuess) {
     guesses = 10;   
     alert("Good job! You won!");
     launchGame();
+
     } // if word is NOT in array then do this
     else if (randomWord.indexOf(userGuess) === -1) {
         guesses--;
@@ -92,7 +98,7 @@ function checkWinOrLoss(userGuess) {
         numberOfGuesses.innerHTML = "Guesses remaining: " + guesses;
         console.log(wrongLetter);
     }
-    // if amount of guesses equal 0, update losses and display to html
+    // if amount of guesses equal 0, update losses and display to html,relaunch game
     if (guesses == 0){
     losses++;
     alert("Sorry you lost!" + " the answer was "+ randomWord);
@@ -102,13 +108,13 @@ function checkWinOrLoss(userGuess) {
     }
 }
 
-
+// launch game
 launchGame();
 
 
 
 
-    // reset game 
+    // reset game button 
     document.getElementById("reset").onclick = function() {
         launchGame();
     };

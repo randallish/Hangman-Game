@@ -31,9 +31,11 @@ var numberOfGuesses = document.getElementById("guesses");
 var numberOfWins = document.getElementById('wins');
 var lettersUsed = document.getElementById("letters-used");
 var numberOfLosses = document.getElementById("losses");
+var display = document.getElementById("display");
 
 // starts game
 function launchGame() {
+    
 // resets variables to global value
 guesses = 10;
 numberOfGuesses.innerHTML = " Guesses remaining: " + guesses;
@@ -55,7 +57,7 @@ for (var i = 0;  i < splitWord.length; i++) {
 }
 hangmanWord.innerHTML = underScores.join('');
 
-};
+}
 
 // registers user key and calls both our  letterCheck function
 // and checkWinOrLoss function
@@ -63,6 +65,7 @@ document.onkeyup = function(event) {
     var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
     letterCheck(userGuess);
     checkWinOrLoss(userGuess);
+    resetDisplay();
 }
 
 // checks for right or wrong letters
@@ -76,21 +79,6 @@ function letterCheck (userGuess) {
                 hangmanWord.innerHTML = underScores.join('');                 
             }
         }
-    }
-}
-// checking the result of game and adjusting wins/losses
-function checkWinOrLoss(userGuess) {
-
-    // if both words are matched, adjust win counter, write to html
-    // and call our launchGame function
-    if (underScores.join('') == splitWord.join('')) { 
-    wins++;
-    numberOfWins.innerHTML = "Number of wins: " + wins;
-    underScores = []; 
-    guesses = 10;   
-    alert("Good job! You won!");
-    launchGame();
-
     } // if word is NOT in array then do this
     else if (randomWord.indexOf(userGuess) === -1) {
         guesses--;
@@ -99,15 +87,33 @@ function checkWinOrLoss(userGuess) {
         numberOfGuesses.innerHTML = "Guesses remaining: " + guesses;
         console.log(wrongLetter);
     }
+}
+
+// checking the result of game and adjusting wins/losses
+function checkWinOrLoss(userGuess) {
+
+    // if both words are matched, adjust win counter, write to html
+    // and call our launchGame function
+    if (underScores.join('') == splitWord.join('')) { 
+    wins++;
+    numberOfWins.innerHTML = "Number of wins: " + wins;
+    lettersUsed.innerHTML = "Letters used: ";
+    display.innerHTML = "Good job you won!";
+    launchGame();
+    }
+
+
     // if amount of guesses equal 0, update losses and display to html,relaunch game
     if (guesses == 0){
     losses++;
-    alert("Sorry you lost!" + " The answer was "+ randomWord);
     numberOfLosses.innerHTML = "Number of losses: " + losses;
+    lettersUsed.innerHTML = "Letters used: ";
+    display.innerHTML = "Sorry you lost! " + "The answer was " + randomWord;
     launchGame();
 
     }
-}
+};
+
 
 // launch game
 launchGame();

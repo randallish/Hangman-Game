@@ -1,3 +1,9 @@
+#display { 
+    margin-left: 900px;
+    margin-top: -150px;
+    font-size: 40px;
+}
+
 
 #hangman-words {
     text-align:center;

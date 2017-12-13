@@ -36,6 +36,7 @@ var numberOfLosses = document.getElementById("losses");
 function launchGame() {
 // resets variables to global value
 guesses = 10;
+numberOfGuesses.innerHTML = " Guesses remaining: " + guesses;
 
 // generates random word from array
 randomWord = words[Math.floor(Math.random() * words.length)];
@@ -101,7 +102,7 @@ function checkWinOrLoss(userGuess) {
     // if amount of guesses equal 0, update losses and display to html,relaunch game
     if (guesses == 0){
     losses++;
-    alert("Sorry you lost!" + " the answer was "+ randomWord);
+    alert("Sorry you lost!" + " The answer was "+ randomWord);
     numberOfLosses.innerHTML = "Number of losses: " + losses;
     launchGame();
 

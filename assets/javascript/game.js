@@ -59,13 +59,12 @@ hangmanWord.innerHTML = underScores.join('');
 
 }
 
-// registers user key and calls both our  letterCheck function
+// registers user key and calls both our letterCheck function
 // and checkWinOrLoss function
 document.onkeyup = function(event) {    
     var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
     letterCheck(userGuess);
     checkWinOrLoss(userGuess);
-    resetDisplay();
 }
 
 // checks for right or wrong letters

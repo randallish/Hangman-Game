@@ -32,7 +32,7 @@ var numberOfWins = document.getElementById('wins');
 var lettersUsed = document.getElementById("letters-used");
 var numberOfLosses = document.getElementById("losses");
 var display = document.getElementById("display");
-
+var reset = document.getElementById("reset");
 // starts game
 function launchGame() {
     
@@ -105,6 +105,7 @@ function checkWinOrLoss(userGuess) {
     // if amount of guesses equal 0, update losses and display to html,relaunch game
     if (guesses == 0){
     losses++;
+    showButton();
     numberOfLosses.innerHTML = "Number of losses: " + losses;
     lettersUsed.innerHTML = "Letters used: ";
     display.innerHTML = "Sorry you lost! " + "The answer was " + randomWord;
@@ -113,8 +114,18 @@ function checkWinOrLoss(userGuess) {
     }
 };
 
+// shows button when game is finished
+function showButton() {
+    reset.style.display = 'block';
+};
+
+// hides reset button until game is finished
+function hideButton() {
+    reset.style.display = 'none';
+}
 
 // launch game
+hideButton();
 launchGame();
 
 
@@ -123,4 +134,5 @@ launchGame();
     // reset game button 
     document.getElementById("reset").onclick = function() {
         launchGame();
+        hideButton();
     };

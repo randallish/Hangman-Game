@@ -4,10 +4,19 @@
     font-size: 40px;
 }
 
-
 #hangman-words {
     text-align:center;
     margin-top: 85px;
+}
+
+.display-3 {
+    margin-top: 30px;
+}
+
+#header {
+    font-size: 80px;
+    margin-top: -15px;
+    padding-top: 30px;
 }
 
 #guesses {
@@ -38,7 +47,7 @@
 
 #reset {
     float:right;
-    margin-right: 575px;
+    margin-right: 662px;
     margin-top: -275px;
 }
 

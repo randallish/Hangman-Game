@@ -6,6 +6,6 @@
 
 
 # Technologies Used
- -Vanilla JS
- -CSS
- -Bootstrap
+ - Vanilla JS
+ - CSS
+ - Bootstrap

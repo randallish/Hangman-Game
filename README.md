@@ -1,4 +1,4 @@
-# Hangman-Game
+# Hangman
  - First project while learning javascript. 
  - Created the very well known hangman game!
  - Rules are simple. An unknown word will appear in the underscores, press any key to guess a letter.
